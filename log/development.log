@@ -1,0 +1,36 @@
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDoctors (20131029213622)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "doctors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "suffix" varchar(255), "physician_type" varchar(255), "image_url" varchar(255), "street_1" varchar(255), "street_2" varchar(255), "city" varchar(255), "state" varchar(255), "zip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131029213622"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.7ms)[0m  INSERT INTO "doctors" ("created_at", "first_name", "last_name", "physician_type", "suffix", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 29 Oct 2013 22:03:26 UTC +00:00], ["first_name", "Rodrigo"], ["last_name", "Endara"], ["physician_type", "Primary Care Doctor"], ["suffix", "MD"], ["title", "Dr."], ["updated_at", Tue, 29 Oct 2013 22:03:26 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mDoctor Load (0.3ms)[0m  SELECT "doctors".* FROM "doctors"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "doctors" ("city", "created_at", "first_name", "last_name", "physician_type", "state", "street_1", "suffix", "title", "updated_at", "zip") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["city", "Chicago"], ["created_at", Tue, 29 Oct 2013 22:12:50 UTC +00:00], ["first_name", "Peggy"], ["last_name", "Wang"], ["physician_type", "Primary Care Doctor"], ["state", "IL"], ["street_1", "1244 N. Milwaukee Ave"], ["suffix", "MD"], ["title", "Dr."], ["updated_at", Tue, 29 Oct 2013 22:12:50 UTC +00:00], ["zip", "60622"]]
+  [1m[36m (8.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "doctors" ("city", "created_at", "first_name", "last_name", "physician_type", "state", "street_1", "suffix", "updated_at", "zip") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Chicago"], ["created_at", Tue, 29 Oct 2013 22:18:21 UTC +00:00], ["first_name", "Ramiro"], ["last_name", "Mercado"], ["physician_type", "Primary Care Doctor"], ["state", "IL"], ["street_1", "1431 N Western Ave."], ["suffix", "MD"], ["updated_at", Tue, 29 Oct 2013 22:18:21 UTC +00:00], ["zip", "60622"]]
+  [1m[35m (8.0ms)[0m  commit transaction
+  [1m[36mDoctor Load (0.3ms)[0m  [1mSELECT "doctors".* FROM "doctors"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePatients (20131030184137)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "patients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "insurance_policy" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131030184137"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (13.0ms)[0m  INSERT INTO "patients" ("created_at", "first_name", "insurance_policy", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 30 Oct 2013 18:44:22 UTC +00:00], ["first_name", "Brian"], ["insurance_policy", "Blue Cross Blue Shield Illinois"], ["last_name", "Smith"], ["updated_at", Wed, 30 Oct 2013 18:44:22 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "patients" ("created_at", "first_name", "insurance_policy", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 30 Oct 2013 18:45:55 UTC +00:00], ["first_name", "John"], ["insurance_policy", "UnitedHealthCare"], ["last_name", "Doe"], ["updated_at", Wed, 30 Oct 2013 18:45:55 UTC +00:00]]
+  [1m[35m (8.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "patients" ("created_at", "first_name", "insurance_policy", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 30 Oct 2013 18:47:53 UTC +00:00], ["first_name", "Lytle"], ["insurance_policy", "Anthem"], ["last_name", "Smith"], ["updated_at", Wed, 30 Oct 2013 18:47:53 UTC +00:00]]
+  [1m[36m (7.8ms)[0m  [1mcommit transaction[0m
